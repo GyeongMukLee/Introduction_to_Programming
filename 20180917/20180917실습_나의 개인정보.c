@@ -2,18 +2,19 @@
 
 int main(){
 	
-	int age,sin,height,mass;	//sin=Student Identification Number(ÇĞ¹ø)ÀÇ ¾àÀÚ 
+	int age,sin,height,mass;	//sin=Student Identification Number(í•™ë²ˆ)ì˜ ì•½ì 
 	char blood;
 	
-	printf("ÇĞ¹ø ³ªÀÌ Å° Ã¼Áß Ç÷¾×Çü À» ÀÔ·ÂÇØ ÁÖ½Ê½Ã¿À. °¢ Ç×¸ñÀº ¶ç¾î¾²±â·Î ±¸ºĞÇÕ´Ï´Ù.\n");
-	scanf("%d %d %d %d %c",&sin,&age,&height,&mass,&blood) ;
+	printf("í•™ë²ˆ ë‚˜ì´ í‚¤ ì²´ì¤‘ í˜ˆì•¡í˜• ì„ ì…ë ¥í•´ ì£¼ì‹­ì‹œì˜¤. ê° í•­ëª©ì€ ë„ì–´ì“°ê¸°ë¡œ êµ¬ë¶„í•©ë‹ˆë‹¤.\n");
+	scanf("%d %d %d %d %c",&sin,&age,&height,&mass,&blood);
+	//scanfë¬¸ì„ ì´ìš©í•˜ì—¬ ìœ„ì™€ ê°™ì´ ì‘ì„±í•˜ë©´ ë„ì–´ì“°ê¸°ë¡œ ê° í•­ëª©ì„ êµ¬ë³„í•˜ì—¬ ì…ë ¥í•  ìˆ˜ ìˆë‹¤.
 	
-	printf("===============================\nÀÌ°æ¹¬ÀÇ °³ÀÎÁ¤º¸\n");
-	printf("%-6s: %10d\n","ÇĞ¹ø",sin);
-	printf("%-6s: %10d¼¼\n","³ªÀÌ",age);
-	printf("%-6s: %10dcm\n","Å°",height);
-	printf("%-6s: %10dkg\n","Ã¼Áß",mass);
-	printf("%-6s: %10cÇü\n","Ç÷¾×Çü",blood);
+	printf("===============================\në‚˜ì˜ ê°œì¸ì •ë³´\n");
+	printf("%-6s: %10d\n","í•™ë²ˆ",sin);
+	printf("%-6s: %10dì„¸\n","ë‚˜ì´",age);
+	printf("%-6s: %10dcm\n","í‚¤",height);
+	printf("%-6s: %10dkg\n","ì²´ì¤‘",mass);
+	printf("%-6s: %10cí˜•\n","í˜ˆì•¡í˜•",blood);
 	
 	return 0;
 	
