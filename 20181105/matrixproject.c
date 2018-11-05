@@ -1,98 +1,98 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define Q1_ROWCOL 5			//¹®Á¦1 Á¤¹æÇà·ÄÀÇ Å©±â
-#define Q2_ROWCOL 3			//¹®Á¦2 Á¤¹æÇà·ÄÀÇ Å©±â. ¹Ù²ãµµ µÊ. ¾Æ¸¶µµ..
+#define Q1_ROWCOL 5			//ë¬¸ì œ1 ì •ë°©í–‰ë ¬ì˜ í¬ê¸°
+#define Q2_ROWCOL 3			//ë¬¸ì œ2 ì •ë°©í–‰ë ¬ì˜ í¬ê¸°. ë°”ê¿”ë„ ë¨.
 
 /*
-	ÇÑ°æ´ëÇĞ±³ ÄÄÇ»ÅÍ°øÇĞ°ú
-	2018250038 ÀÌ°æ¹¬
+	í•œê²½ëŒ€í•™êµ ì»´í“¨í„°ê³µí•™ê³¼
+	2018250038 ì´ê²½ë¬µ
 */
 
-int left_diagonal_sum(int matrix[Q1_ROWCOL][Q1_ROWCOL]) {		//ÁÂ´ë°¢ÇÕÀ» ±¸ÇÏ´Â ÇÔ¼ö. ¹è¿­À» ÀÎÀÚ·Î ¹Ş´Â´Ù.
+int left_diagonal_sum(int matrix[Q1_ROWCOL][Q1_ROWCOL]) {		//ì¢ŒëŒ€ê°í•©ì„ êµ¬í•˜ëŠ” í•¨ìˆ˜. ë°°ì—´ì„ ì¸ìë¡œ ë°›ëŠ”ë‹¤.
 	int left_sum, row, column;
 
 	for (row = 0, column = 0, left_sum = 0; row < Q1_ROWCOL; row++, column++) {
 		left_sum = left_sum + matrix[row][column];
-		//¹è¿­¿¡¼­ °¡·Î¿Í ¼¼·Î¸¦ 1Ä­¾¿ ÀÌµ¿ÇÏ¸ç left_sum¿¡ ´õÇÑ´Ù. ¿¹¸¦ µé¾î 5*5¹è¿­ÀÏ °æ¿ì (0,0), (1,1), (2,2)... ¿Í °°ÀÌ ÀÌµ¿ÇÑ´Ù.
+		//ë°°ì—´ì—ì„œ ê°€ë¡œì™€ ì„¸ë¡œë¥¼ 1ì¹¸ì”© ì´ë™í•˜ë©° left_sumì— ë”í•œë‹¤. ì˜ˆë¥¼ ë“¤ì–´ 5*5ë°°ì—´ì¼ ê²½ìš° (0,0), (1,1), (2,2)... ì™€ ê°™ì´ ì´ë™í•œë‹¤.
 	}
 
 	return left_sum;
 }
 
-int right_diagonal_sum(int matrix[Q1_ROWCOL][Q1_ROWCOL]) {	//¿ì´ë°¢ÇÕÀ» ±¸ÇÏ´Â ÇÔ¼ö. ¹è¿­À» ÀÎÀÚ·Î ¹Ş´Â´Ù.
+int right_diagonal_sum(int matrix[Q1_ROWCOL][Q1_ROWCOL]) {	//ìš°ëŒ€ê°í•©ì„ êµ¬í•˜ëŠ” í•¨ìˆ˜. ë°°ì—´ì„ ì¸ìë¡œ ë°›ëŠ”ë‹¤.
 	int right_sum, row, column;
 	for (row = 0, column = Q1_ROWCOL - 1, right_sum = 0; row < Q1_ROWCOL; row++, column--) {
 		right_sum = right_sum +matrix[row][column];
-		//¹è¿­¿¡¼­ °¡·Î·Î 1Ä­, ¼¼·Î·Î -1Ä­¾¿ ÀÌµ¿ÇÏ¸ç right_sum¿¡ ´õÇÑ´Ù. ¿¹¸¦ µé¾î 5*5¹è¿­ÀÏ °æ¿ì (0,5), (1,4), (2,3)... °ú °°ÀÌ ÀÌµ¿ÇÑ´Ù.
+		//ë°°ì—´ì—ì„œ ê°€ë¡œë¡œ 1ì¹¸, ì„¸ë¡œë¡œ -1ì¹¸ì”© ì´ë™í•˜ë©° right_sumì— ë”í•œë‹¤. ì˜ˆë¥¼ ë“¤ì–´ 5*5ë°°ì—´ì¼ ê²½ìš° (0,5), (1,4), (2,3)... ê³¼ ê°™ì´ ì´ë™í•œë‹¤.
 	}
 
 	return right_sum;
 }
 
-void NEWS_sum(int matrix[Q2_ROWCOL][Q2_ROWCOL]) {		//»ç¹æÀÇ ÇÕÀ» ±¸ÇÏ´Â ÇÔ¼ö. ¹è¿­À» ÀÎÀÚ·Î ¹Ş´Â´Ù.
+void NEWS_sum(int matrix[Q2_ROWCOL][Q2_ROWCOL]) {		//ì‚¬ë°©ì˜ í•©ì„ êµ¬í•˜ëŠ” í•¨ìˆ˜. ë°°ì—´ì„ ì¸ìë¡œ ë°›ëŠ”ë‹¤.
 	int help_matrix[Q2_ROWCOL + 2][Q2_ROWCOL + 2], answer[Q2_ROWCOL][Q2_ROWCOL], row, column;
 
-	for (row = 0; row < Q2_ROWCOL + 2; row++) {		//¹®Á¦ÀÇ Çà·ÄÀ» »ç¹æÀÌ 0À¸·Î µÑ·¯½ÎÀÎ ÇüÅÂ(help_matrix)·Î ¹Ù²Ş
+	for (row = 0; row < Q2_ROWCOL + 2; row++) {		//ë¬¸ì œì˜ í–‰ë ¬ì„ ì‚¬ë°©ì´ 0ìœ¼ë¡œ ë‘˜ëŸ¬ì‹¸ì¸ í˜•íƒœ(help_matrix)ë¡œ ë°”ê¿ˆ
 		for (column = 0; column < Q2_ROWCOL + 2; column++) {
-			if (row == 0 || row == Q2_ROWCOL + 1) {
+			if (row == 0 || row == Q2_ROWCOL + 1) {			//ì—´ì˜ ì–‘ëì¼ ê²½ìš°
 				help_matrix[row][column] = 0;
 			}
-			else if (column == 0 || column == Q2_ROWCOL + 1) {
+			else if (column == 0 || column == Q2_ROWCOL + 1) {	//í–‰ì˜ ì–‘ëì¼ ê²½ìš°
 				help_matrix[row][column] = 0;
 			}
-			else {
+			else {							//ë‚˜ë¨¸ì§€ ê²½ìš°(0ìœ¼ë¡œ ë‘˜ëŸ¬ì‹¸ì¸ ê°€ìš´ë°ì— ì›ë˜ ë°°ì—´ì„ ë„£ëŠ”ë‹¤)
 				help_matrix[row][column] = matrix[row - 1][column - 1];
 			}
 		}
 	}
 
-	for (row = 1; row < Q2_ROWCOL + 1; row++) {		//help_matrix¿¡¼­ »ç¹æÀÇ ÇÕÀ» ´õÇØ¼­ Ãâ·ÂÇÔ
+	for (row = 1; row < Q2_ROWCOL + 1; row++) {		//help_matrixì—ì„œ ì‚¬ë°©ì˜ í•©ì„ ë”í•´ì„œ ì¶œë ¥í•¨
 		for (column = 1; column < Q2_ROWCOL + 1; column++) {
 			answer[row - 1][column - 1] = help_matrix[row - 1][column] + help_matrix[row][column - 1] + help_matrix[row + 1][column] + help_matrix[row][column + 1];
-			printf("%3d ", answer[row - 1][column - 1]);		//ÇÔ¼ö¿¡¼­ ¹è¿­À» returnÇÏ´Â ¹æ¹ıÀ» ¸ğ¸£°Ú¾î¼­ ±×³É Ãâ·ÂÇÔ
+			printf("%3d ", answer[row - 1][column - 1]);		//í•¨ìˆ˜ì—ì„œ ë°°ì—´ì„ returní•˜ëŠ” ë°©ë²•ì„ ëª¨ë¥´ê² ì–´ì„œ ê·¸ëƒ¥ ì¶œë ¥í•¨
 		}
 		printf("\n");
 	}
 }
 
 int main(){
-	int q1_matrix[Q1_ROWCOL][Q1_ROWCOL], q2_matrix[Q2_ROWCOL][Q2_ROWCOL];	//¹®Á¦ÀÇ ¹è¿­
-	int row, column;		//for¹®¿¡¼­ Çà°ú ¿­À» ³ªÅ¸³¾ º¯¼ö
-	srand(time(NULL));		//ÇÁ·Î±×·¥À» ½ÇÇàÇÒ ¶§¸¶´Ù rand()ÀÇ °ªÀÌ ´Ù¸£°Ô ³ªÅ¸³ªµµ·Ï ÇÏ´Â ÇÔ¼ö
+	int q1_matrix[Q1_ROWCOL][Q1_ROWCOL], q2_matrix[Q2_ROWCOL][Q2_ROWCOL];	//ë¬¸ì œì˜ ë°°ì—´
+	int row, column;		//forë¬¸ì—ì„œ í–‰ê³¼ ì—´ì„ ë‚˜íƒ€ë‚¼ ë³€ìˆ˜
+	srand(time(NULL));		//í”„ë¡œê·¸ë¨ì„ ì‹¤í–‰í•  ë•Œë§ˆë‹¤ rand()ì˜ ê°’ì´ ë‹¤ë¥´ê²Œ ë‚˜íƒ€ë‚˜ë„ë¡ í•˜ëŠ” í•¨ìˆ˜
 
-	for (row = 0; row < Q1_ROWCOL; row++){		//rand()ÇÔ¼ö¸¦ ÀÌ¿ëÇØ Çà·Ä1À» ÃÊ±âÈ­
+	for (row = 0; row < Q1_ROWCOL; row++){		//rand()í•¨ìˆ˜ë¥¼ ì´ìš©í•´ í–‰ë ¬1ì„ ì´ˆê¸°í™”
 		for (column = 0; column < Q1_ROWCOL; column++){
 			q1_matrix[row][column] = rand() % (Q1_ROWCOL*Q1_ROWCOL);
-			//Çà·Ä¿¡ µé¾î°¥ ¼ö ÀÖ´Â ¼ıÀÚ´Â (Çà·ÄÀÇ Å©±â)^2°¡ µÇµµ·Ï ÇÑ´Ù
+			//í–‰ë ¬ì— ë“¤ì–´ê°ˆ ìˆ˜ ìˆëŠ” ìˆ«ìëŠ” (í–‰ë ¬ì˜ í¬ê¸°)^2ê°€ ë˜ë„ë¡ í•œë‹¤
 		}
 	}
 
-	for (row = 0; row < Q2_ROWCOL; row++) {		//rand()ÇÔ¼ö¸¦ ÀÌ¿ëÇØ Çà·Ä2¸¦ ÃÊ±âÈ­
+	for (row = 0; row < Q2_ROWCOL; row++) {		//rand()í•¨ìˆ˜ë¥¼ ì´ìš©í•´ í–‰ë ¬2ë¥¼ ì´ˆê¸°í™”
 		for (column = 0; column < Q2_ROWCOL; column++) {
 			q2_matrix[row][column] = rand() % (Q2_ROWCOL*Q2_ROWCOL);
-			//Çà·Ä¿¡ µé¾î°¥ ¼ö ÀÖ´Â ¼ıÀÚ´Â (Çà·ÄÀÇ Å©±â)^2°¡ µÇµµ·Ï ÇÑ´Ù
+			//í–‰ë ¬ì— ë“¤ì–´ê°ˆ ìˆ˜ ìˆëŠ” ìˆ«ìëŠ” (í–‰ë ¬ì˜ í¬ê¸°)^2ê°€ ë˜ë„ë¡ í•œë‹¤
 		}
 	}
 
-	printf("¹®Á¦1 Çà·Ä\n");
-	for (row = 0; row < Q1_ROWCOL; row++) {		//¹®Á¦1 Çà·ÄÀ» Ãâ·Â
+	printf("ë¬¸ì œ1 í–‰ë ¬\n");
+	for (row = 0; row < Q1_ROWCOL; row++) {		//ë¬¸ì œ1 í–‰ë ¬ì„ ì¶œë ¥
 		for (column = 0; column < Q1_ROWCOL; column++) {
 			printf("%3d ", q1_matrix[row][column]);
 		}
 		printf("\n");
 	}
 
-	printf("ÁÂ´ë°¢ÇÕ=%d\n¿ì´ë°¢ÇÕ=%d\n", left_diagonal_sum(q1_matrix), right_diagonal_sum(q1_matrix));
+	printf("ì¢ŒëŒ€ê°í•©=%d\nìš°ëŒ€ê°í•©=%d\n", left_diagonal_sum(q1_matrix), right_diagonal_sum(q1_matrix));
 	printf("=================================================\n");
 
-	printf("¹®Á¦2 Çà·Ä\n");
-	for (row = 0; row < Q2_ROWCOL; row++) {		//¹®Á¦2 Çà·ÄÀ» Ãâ·Â
+	printf("ë¬¸ì œ2 í–‰ë ¬\n");
+	for (row = 0; row < Q2_ROWCOL; row++) {		//ë¬¸ì œ2 í–‰ë ¬ì„ ì¶œë ¥
 		for (column = 0; column < Q2_ROWCOL; column++) {
 			printf("%3d ", q2_matrix[row][column]);
 		}
 		printf("\n");
 	}
-	printf("µ¿¼­³²ºÏÇÕ Çà·Ä\n");
+	printf("ë™ì„œë‚¨ë¶í•© í–‰ë ¬\n");
 	NEWS_sum(q2_matrix);
 	
 	return 0;
