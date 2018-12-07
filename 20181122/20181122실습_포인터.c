@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+/*
+	포인터와 일반 변수가 어떻게 출력되는지 확인해보는 코드
+*/
+
 int main() {
 	int integer, *p_integer;
 	char name, *p_name;

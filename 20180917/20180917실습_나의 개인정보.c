@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+/*
+	scanf문을 이용하여 입력받은 정보를 저장하고 출력하는 코드
+*/
+
 int main(){
 	
 	int age,sin,height,mass;	//sin=Student Identification Number(학번)의 약자 

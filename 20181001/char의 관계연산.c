@@ -14,7 +14,7 @@ main(){
 	
 	printf("======================\n");
 	
-	max=a>b?a:b;	//a>b를 연산해서 참이면 a를, 거짓이면 b를 max에 대입하는 연산자.	
+	max=a>b?a:b;	//a>b를 연산해서 참이면 a를, 거짓이면 b를 max에 대입하는 연산자. '삼항 연산자'라고 한다.
 	printf("문자 %c\n정수 %d\n",max,max);
 	
 	return 0;
